@@ -24,6 +24,11 @@ class _CurrencyConverterMaterialPageState
     extends State<CurrencyConverterMaterialPage> {
   double result = 0;
   final textEditingController = TextEditingController();
+  void convert() {
+    setState(() {
+      result = double.parse(textEditingController.text) * 1380;
+    });
+  }
 
   @override
   void dispose() {
@@ -31,6 +36,21 @@ class _CurrencyConverterMaterialPageState
     super.dispose();
   }
 
+  //textEditingController
+  // A controller for an editable text field.
+  // It can be used to read, modify, or listen to the text field in the entire app
+  //(including when the keyboard is open or closed).
+  //
+  // To prevent memory leakage, we need to dispose of the controller when the widget
+  // is disposed of.
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+
+  //build method is called only once when the widget is created
   @override
   Widget build(BuildContext context) {
     // return const Scaffold();
@@ -41,6 +61,11 @@ class _CurrencyConverterMaterialPageState
     );
 
     return Scaffold(
+      //Scaffold
+      // Material design visual layout structure.
+      // body: Widget
+      // backgroundColor: Colors.amber
+      //  Color - A representation of colors in the ARGB (Alpha, Red, Green, Blue) format.
       backgroundColor: Colors.amber,
       appBar: AppBar(
         title: const Text(
@@ -72,24 +97,25 @@ class _CurrencyConverterMaterialPageState
         // ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              result.toString(),
-              style: const TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.brown,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                result != 0
+                    ? "NGN ${result.toStringAsFixed(2)}"
+                    : result.toStringAsFixed(0),
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown,
+                ),
               ),
-            ),
-            //padding: padding is used to give space around the widget(inside)
-            //margin: margin is used to give space around the widget(outside)
-            //container: allows to set bunch of properties to a widget
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              // margin: const EdgeInsets.all(8.0),
-              child: TextField(
+              //padding: padding is used to give space around the widget(inside)
+              //margin: margin is used to give space around the widget(outside)
+              //container: allows to set bunch of properties to a widget
+              TextField(
                 controller: textEditingController,
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
@@ -109,19 +135,19 @@ class _CurrencyConverterMaterialPageState
                   enabledBorder: border,
                 ),
               ),
-            ),
 
-            //button
-            // in material design, button can be classified into:
-            // 1. ElevatedButton: gives a solid background color to the button.
-            //    like a 3d effect. originally called a raised button.
-            // 2. OutlinedButton: gives a border to the button. flat style.
-            // 3. TextButton: gives no background color and no border to the button.
-            //    Like a simple flat text(button). originally called flat button.
-            //
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
+              //button
+              // in material design, button can be classified into:
+              // 1. ElevatedButton: gives a solid background color to the button.
+              //    like a 3d effect. originally called a raised button.
+              // 2. OutlinedButton: gives a border to the button. flat style.
+              // 3. TextButton: gives no background color and no border to the button.
+              //    Like a simple flat text(button). originally called flat button.
+              //
+
+              //Space between the text field and the button
+              const SizedBox(height: 10),
+              ElevatedButton(
                 onPressed: () {
                   setState(() {
                     result = double.parse(textEditingController.text) * 1380;
@@ -141,6 +167,10 @@ class _CurrencyConverterMaterialPageState
                 //   ),
                 // ),
                 // ),
+
+                // ElevatedButton.styleFrom:
+                // This is the default way to style the button.
+                // It is a factory constructor that creates an instance of
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
@@ -151,8 +181,8 @@ class _CurrencyConverterMaterialPageState
                 ),
                 child: const Text('Convert'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
