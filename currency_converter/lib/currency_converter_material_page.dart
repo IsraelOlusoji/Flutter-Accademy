@@ -44,11 +44,7 @@ class _CurrencyConverterMaterialPageState
   // To prevent memory leakage, we need to dispose of the controller when the widget
   // is disposed of.
 
-  @override
-  void dispose() {
-    textEditingController.dispose();
-    super.dispose();
-  }
+ 
 
   //build method is called only once when the widget is created
   @override
