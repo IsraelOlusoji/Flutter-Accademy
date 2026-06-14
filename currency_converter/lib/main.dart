@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyCupertinoApp());
+  runApp(const MaterialApp());
 }
 
 // Types of Widget
@@ -13,7 +13,7 @@ void main() {
 // 1. StatelessWidget
 // -> build() method is called only once, when the widget is created
 //
-// 2. StatefulWidget
+// 2. StatefulWidget`
 // -> build() method is called every time the state is changed
 
 //In terms of Data Management

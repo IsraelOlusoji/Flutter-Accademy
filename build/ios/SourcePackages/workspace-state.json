@@ -9,12 +9,12 @@
         "packageRef" : {
           "identity" : "flutterframework",
           "kind" : "fileSystem",
-          "location" : "/Users/jungles/Documents/Flutter Academy/weather_app/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework",
+          "location" : "/Users/jungles/Documents/Flutter Academy/shop_app/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework",
           "name" : "FlutterFramework"
         },
         "state" : {
           "name" : "fileSystem",
-          "path" : "/Users/jungles/Documents/Flutter Academy/weather_app/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework"
+          "path" : "/Users/jungles/Documents/Flutter Academy/shop_app/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework"
         },
         "subpath" : "flutterframework"
       }

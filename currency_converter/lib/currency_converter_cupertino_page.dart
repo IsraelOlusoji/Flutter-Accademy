@@ -19,7 +19,6 @@ class _CurrencyConverterCupertinoPageState
     });
   }
 
-
   @override
   void dispose() {
     textEditingController.dispose();

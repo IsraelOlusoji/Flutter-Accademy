@@ -44,8 +44,6 @@ class _CurrencyConverterMaterialPageState
   // To prevent memory leakage, we need to dispose of the controller when the widget
   // is disposed of.
 
- 
-
   //build method is called only once when the widget is created
   @override
   Widget build(BuildContext context) {
