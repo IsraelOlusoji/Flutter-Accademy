@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:shop_app/global_variables.dart';
+import 'package:shop_app/product_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20.0),
                   child: Text(
                     'Shoes\nCollection',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
                 // expanded: make it take all available space
@@ -67,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () => setState(() {
                         selectedFilter = filter;
                       }),
+                      //Chip: It is a Material UI component used for displaying information that is compact and can include text, and often an icon or avatar
                       child: Chip(
                         backgroundColor: selectedFilter == filter
                             ? Theme.of(context).colorScheme.primary
@@ -84,6 +89,23 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                  );
+                },
+              ),
+            ),
+
+            Expanded(
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final product = products[index];
+                  return ProductCard(
+                    title: product['title'] as String,
+                    price: product['price'] as double,
+                    imageUrl: product['imageUrl'] as String,
+                    backgroundColor: index.isEven
+                        ? Color.fromRGBO(216, 240, 253, 1)
+                        : const Color.fromRGBO(245, 247, 249, 1),
                   );
                 },
               ),
